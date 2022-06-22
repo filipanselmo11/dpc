@@ -1,28 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <Title titulo="Título 1"/>
+    <Title titulo="Título 2"/> 
+    Não precisar usar bind para strings-->
+    <!-- <Title :titulo="1"></Title>
+    <Title :titulo="122"></Title> -->
+    <Title v-bind="titulos[0]"></Title>
+    <!-- <Title class="red" style="display: block;" titulo="Vue js" :tipo="1"></Title> -->
+    <!---Precisa usar o bind para outros tipos de dados, como numeros por exemplo-->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Title from "./components/Title.vue";
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  components: { Title },
+  name: "App",
+  data(){
+    return {
+      titulos:[
+        { titulo: 'Titulo 1', subtitulo: 'SUBT 1', tipo: 1}
+      ],
+    }
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
