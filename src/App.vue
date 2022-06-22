@@ -1,19 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Input v-model="text" />
+    {{ text }}
+    <!-- <input type="text" v-model.trim="text" /> -->
+    <!-- <input type="text" v-model.number="text"> -->
+    {{ text }}
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Input from "./components/Input.vue";
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  data() {
+    return {
+      text: "",
+    };
+  },
+  components: { Input },
+  watch: {
+    text(value) {
+      console.log(value);
+    },
+  },
+};
 </script>
 
 <style>
